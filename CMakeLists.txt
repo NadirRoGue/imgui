@@ -1,8 +1,4 @@
-set(Name imgui)
-set(NAME imgui)
-set(namespace imgui)
-set(NAMESPACE imgui)
-set(INCLUDE_NAME imgui)
+project(libimgui)
 
 set( IMGUI_SOURCES
   imgui_widgets.cpp
@@ -10,7 +6,6 @@ set( IMGUI_SOURCES
   imgui_draw.cpp
   imgui_demo.cpp
   misc/cpp/imgui_stdlib.cpp
-  misc/freetype/imgui_freetype.cpp
   misc/fonts/binary_to_compressed_c.cpp
 )
 
@@ -22,9 +17,8 @@ set( IMGUI_HEADERS
   imstb_textedit.h
   imstb_truetype.h
   misc/cpp/imgui_stdlib.h
-  misc/freetype/imgui_freetype.h
 )
 
-include_directories(${PROJECT_SOURCE_DIR})
+add_library(imgui SHARED ${IMGUI_SOURCES} ${IMGUI_HEADERS})
 
-common_library (imgui NOHELP )
+include_directories(${PROJECT_SOURCE_DIR})
